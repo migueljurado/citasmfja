@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+  <record model="ir.ui.view" id="citasmja.list">
+      <field name="name">citasmja list</field>
+      <field name="model">citasmja.start</field>
+      <field name="arch" type="xml">
+        <tree default_order="fecha">
+		  <field name="orden"/>
+          <field name="autor"/>
+          <field name="cita"/>
+		  <field name="fecha"/>
+        </tree>
+		
+      </field>
+    </record> 
+<!-- Search View  -->
+		<record id="student_search_view" model="ir.ui.view">
+			<field name="name">student.search.view</field>
+			<field name="model">citasmja.start</field>
+			<field name="arch" type="xml">
+			<field name="orden"/>
+			<field name="autor"/>
+			<field name="cita"/>
+			<field name="fecha"/>
+				<search string="Info">
+					<group expand="0" string="Group By">
+						<filter name="groupby_id" string="id" domain="[]" context="{'group_by':'id'}"
+							help="Ordenador por id"/>
+					</group>
+					<filter name="muestra_autor" string="autor" domain="[('autor','=','Miguel Francisco')]"
+						help="Muestra autor miguel" />
+				</search>
+			</field>
+		</record>	
+	
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="citasmja.action_window">
+      <field name="name">citasmja window</field>
+      <field name="res_model">citasmja.start</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+	    <record model="ir.actions.act_window" id="citasmja.action_window">
+      <field name="name">citasmja window</field>
+      <field name="res_model">citasmja.start</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+		    <record model="ir.actions.act_window" id="citasmja.action_windowcrear">
+      <field name="name">citasmja window</field>
+      <field name="res_model">citasmja.start</field>
+      <field name="view_mode">form,tree</field>
+    </record>
+	
+	
+ 
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="citasmja.action_server">
+      <field name="name">citasmja server</field>
+      <field name="model_id" ref="model_citasmja_citasmja"/>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+    <!-- Top menu item -->
+		<menuitem name="Citasmja" id="citasmja.menu_root"/>
+    <!-- menu categories -->
+	    <menuitem name="Citas" id="citasmja.lista" parent="citasmja.menu_root"/>
+    <!-- actions -->
+	    <menuitem name="Lista" id="citasmja.menu_1_list" parent="citasmja.lista" action="citasmja.action_window"/>
+		<menuitem name="Crear Nuevo-Extra" id="citasmja.menu_2_list" parent="citasmja.lista" action="citasmja.action_windowcrear"/>
+			  
+			  
+			  
+  </data>
+</odoo>

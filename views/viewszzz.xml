@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record id="list" model="ir.ui.view">
+            <field name="name">citasmja.start.form</field>
+            <field name="model">citasmja.start</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name" string="Test Name" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
